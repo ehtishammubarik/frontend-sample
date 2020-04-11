@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Test App</title>
+  
+</head>
+
+<body>
+
+  <div id="root"></div>
+  <div>
+   <b>Server Response</b>
+   <p id="resp"></p>
+   </div>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   <script>
+    $(document).ready(function(){
+        $.get("http://api:30017/", function(resp){
+         $("#resp").text(()=>{
+            var date=new Date();
+            return date.toLocaleString()+" "+ resp;
+         });
+        }).fail(function(err){
+            alert("Failed");
+            alert(JSON.stringify(err));
+        });
+    });
+</script>
+</body>
+
+</html>
